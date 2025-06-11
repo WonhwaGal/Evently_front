@@ -6,7 +6,7 @@ import appTitle from "@/assets/app-title.png";
 
 <template>
   <v-app-bar flat color="blue-grey darken-4" height="120">
-    <v-container class="pa-0 fill-height" style="max-width: 850px; margin: 0 auto;">
+    <v-container class="pa-0 fill-height" style="max-width: 900px; margin: 0 auto;">
       <v-row class="fill-height" align="center" justify="space-between">
         <v-col cols="4" class="text-start">
           first column

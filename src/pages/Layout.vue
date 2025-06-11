@@ -1,51 +1,27 @@
 <script setup>
 import NavBar from "@/components/NavBar.vue"
+import MainContent from "@/components/MainContent.vue"
+import Footer from "@/components/Footer.vue"
 </script>
 
 <template>
   <v-app id="inspire">
     <NavBar />
-
-    <v-main class="bg-grey-lighten-3">
-      <v-container>
-        <v-row>
-          <v-col cols="2">
-            <v-sheet rounded="lg">
-              <v-list rounded="lg">
-                <v-list-item
-                  v-for="n in 3"
-                  :key="n"
-                  :title="`List Item ${n}`"
-                  link
-                ></v-list-item>
-
-                <v-divider class="my-2"></v-divider>
-
-                <v-list-item
-                  color="grey-lighten-4"
-                  title="Refresh"
-                  link
-                ></v-list-item>
-              </v-list>
-            </v-sheet>
-          </v-col>
-
-          <v-col>
-            <v-sheet
-              min-height="70vh"
-              rounded="lg"
-            >
-              <!--  -->
-            </v-sheet>
-          </v-col>
-        </v-row>
-      </v-container>
+    <v-main class="fixed-background">
+      <MainContent />
     </v-main>
+    <Footer />
   </v-app>
 </template>
 
 <style scoped>
-
+.fixed-background{
+  background-image: url('@/assets/background.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
+}
 </style>
 
 
