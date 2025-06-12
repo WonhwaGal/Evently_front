@@ -8,11 +8,19 @@ export {}
 /* prettier-ignore */
 declare module 'vue' {
   export interface GlobalComponents {
+    AdminComponent: typeof import('./src/components/AdminComponent.vue')['default']
     AppFooter: typeof import('./src/components/AppFooter.vue')['default']
-    Footer: typeof import('./src/components/Footer.vue')['default']
+    CartComponent: typeof import('./src/components/CartComponent.vue')['default']
+    Categories: typeof import('./src/components/forManagement/Categories.vue')['default']
+    ErrorModal: typeof import('./src/components/mainLayout/ErrorModal.vue')['default']
+    Events: typeof import('./src/components/forManagement/Events.vue')['default']
+    Footer: typeof import('./src/components/mainLayout/Footer.vue')['default']
     HelloWorld: typeof import('./src/components/HelloWorld.vue')['default']
-    MainContent: typeof import('./src/components/MainContent.vue')['default']
-    NavBar: typeof import('./src/components/NavBar.vue')['default']
+    HomeComponent: typeof import('./src/components/HomeComponent.vue')['default']
+    LoginComponent: typeof import('./src/components/LoginComponent.vue')['default']
+    MainContent: typeof import('./src/components/mainLayout/MainContent.vue')['default']
+    NavBar: typeof import('./src/components/mainLayout/NavBar.vue')['default']
+    NotFoundComponent: typeof import('./src/components/NotFoundComponent.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
   }

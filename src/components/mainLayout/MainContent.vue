@@ -1,21 +1,18 @@
 <script setup>
-import Footer from "@/components/Footer.vue"
+import { RouterView } from 'vue-router';
 </script>
 
 <template>
   <v-container class="main-content" fluid>
     <v-row>
-      <v-col cols="3" class="menu">
-        content
+      <v-col cols="2" class="menu">
+        menu
         <p v-for="n in 5" :key="n">
           Number: {{ n }}
         </p>
       </v-col>
-      <v-col cols="9" class="scrollable-view">
-        content
-        <p v-for="n in 50" :key="n">
-          Number: {{ n }}
-        </p>
+      <v-col cols="10" class="scrollable-view">
+        <RouterView />
       </v-col>
     </v-row>
   </v-container>
@@ -33,7 +30,7 @@ import Footer from "@/components/Footer.vue"
 }
 
 .scrollable-view{
-  background-color: rgba(255, 255, 255, 0.8);
+  background-color: rgba(244, 206, 22, 0.8);
   height: 100%;
 }
 

@@ -1,7 +1,8 @@
 <script setup>
-import NavBar from "@/components/NavBar.vue"
-import MainContent from "@/components/MainContent.vue"
-import Footer from "@/components/Footer.vue"
+import NavBar from "@/components/mainLayout/NavBar.vue"
+import MainContent from "@/components/mainLayout/MainContent.vue"
+import Footer from "@/components/mainLayout/Footer.vue"
+
 </script>
 
 <template>
@@ -9,6 +10,7 @@ import Footer from "@/components/Footer.vue"
     <NavBar />
     <v-main class="fixed-background">
       <MainContent />
+      <!-- error modal -->
     </v-main>
     <Footer />
   </v-app>

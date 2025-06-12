@@ -1,35 +1,48 @@
-/**
- * router/index.ts
- *
- * Automatic routes for `./src/pages/*.vue`
- */
-
-// Composables
-import { createRouter, createWebHistory } from 'vue-router/auto'
-import { routes } from 'vue-router/auto-routes'
+import { createRouter, createWebHistory } from "vue-router"
+import HomeComponent from "@/components/HomeComponent.vue"
+import LoginComponent from "@/components/LoginComponent.vue"
+import CartComponent from "@/components/CartComponent.vue";
+import NotFoundComponent from "@/components/NotFoundComponent.vue";
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
-  routes,
-})
-
-// Workaround for https://github.com/vitejs/vite/issues/11804
-router.onError((err, to) => {
-  if (err?.message?.includes?.('Failed to fetch dynamically imported module')) {
-    if (localStorage.getItem('vuetify:dynamic-reload')) {
-      console.error('Dynamic import error, reloading page did not fix it', err)
-    } else {
-      console.log('Reloading page to fix dynamic import error')
-      localStorage.setItem('vuetify:dynamic-reload', 'true')
-      location.assign(to.fullPath)
+  routes:[
+    {
+      path: "/",
+      name: "home-view",
+      component: HomeComponent //() => import('@/components/HomeComponent.vue')
+    },
+    {
+      path: "/login",
+      name: "login-view",
+      component: LoginComponent
+    },
+    {
+      path: "/admin",
+      name: "admin-view",
+      component: () => import('@/components/AdminComponent.vue'),
+      children:[
+        {
+          path: "categories",
+          component: () => import('@/components/forManagement/Categories.vue')
+        },
+        {
+          path: "events",
+          component: () => import('@/components/forManagement/Events.vue')
+        }
+      ]
+    },
+    {
+      path: "/cart",
+      name: "cart-view",
+      component: CartComponent
+    },
+    {
+      path: "/:catchall(.*)*",
+      name: "not-found",
+      component: NotFoundComponent
     }
-  } else {
-    console.error(err)
-  }
-})
-
-router.isReady().then(() => {
-  localStorage.removeItem('vuetify:dynamic-reload')
+  ]
 })
 
 export default router
