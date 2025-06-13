@@ -3,7 +3,7 @@
 </script>
 
 <template>
- 404 nothing to see here
+  Login menu
 </template>
 
 <style scoped>

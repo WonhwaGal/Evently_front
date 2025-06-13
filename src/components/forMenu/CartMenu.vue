@@ -3,7 +3,7 @@
 </script>
 
 <template>
- 404 nothing to see here
+  Cart menu
 </template>
 
 <style scoped>

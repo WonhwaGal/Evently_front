@@ -1,6 +1,9 @@
 import { createRouter, createWebHistory } from "vue-router"
+import HomeMenu from "@/components/forMenu/HomeMenu.vue";
 import HomeComponent from "@/components/HomeComponent.vue"
+import LoginMenu from "@/components/forMenu/LoginMenu.vue";
 import LoginComponent from "@/components/LoginComponent.vue"
+import CartMenu from "@/components/forMenu/CartMenu.vue";
 import CartComponent from "@/components/CartComponent.vue";
 import NotFoundComponent from "@/components/NotFoundComponent.vue";
 
@@ -10,17 +13,26 @@ const router = createRouter({
     {
       path: "/",
       name: "home-view",
-      component: HomeComponent //() => import('@/components/HomeComponent.vue')
+      components: {
+        menu: HomeMenu,
+        content : HomeComponent
+      }
     },
     {
       path: "/login",
       name: "login-view",
-      component: LoginComponent
+      components: {
+        menu: LoginMenu,
+        content : LoginComponent
+      }
     },
     {
       path: "/admin",
       name: "admin-view",
-      component: () => import('@/components/AdminComponent.vue'),
+      components: {
+        menu: () => import('@/components/forMenu/AdminMenu.vue'),
+        content: () => import('@/components/AdminComponent.vue')
+      },
       children:[
         {
           path: "categories",
@@ -35,12 +47,18 @@ const router = createRouter({
     {
       path: "/cart",
       name: "cart-view",
-      component: CartComponent
+      components: {
+        menu: CartMenu,
+        content : CartComponent
+      }
     },
     {
       path: "/:catchall(.*)*",
       name: "not-found",
-      component: NotFoundComponent
+      components: {
+        menu: () => import('@/components/forMenu/NotFoundMenu.vue'),
+        content: NotFoundComponent
+      }
     }
   ]
 })

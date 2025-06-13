@@ -5,14 +5,11 @@ import { RouterView } from 'vue-router';
 <template>
   <v-container class="main-content" fluid>
     <v-row>
-      <v-col cols="2" class="menu">
-        menu
-        <p v-for="n in 5" :key="n">
-          Number: {{ n }}
-        </p>
+      <v-col cols="2" class="menu-view">
+        <RouterView name="menu" />
       </v-col>
       <v-col cols="10" class="scrollable-view">
-        <RouterView />
+        <RouterView name="content" />
       </v-col>
     </v-row>
   </v-container>
@@ -34,7 +31,7 @@ import { RouterView } from 'vue-router';
   height: 100%;
 }
 
-.menu{
+.menu-view{
   background-color: rgba(97, 163, 80, 0.8);
   overflow: hidden;
 }

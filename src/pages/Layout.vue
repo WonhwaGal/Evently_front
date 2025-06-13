@@ -1,8 +1,8 @@
 <script setup>
 import NavBar from "@/components/mainLayout/NavBar.vue"
 import MainContent from "@/components/mainLayout/MainContent.vue"
+import ErrorModal from "@/components/mainLayout/ErrorModal.vue";
 import Footer from "@/components/mainLayout/Footer.vue"
-
 </script>
 
 <template>
@@ -10,8 +10,8 @@ import Footer from "@/components/mainLayout/Footer.vue"
     <NavBar />
     <v-main class="fixed-background">
       <MainContent />
-      <!-- error modal -->
     </v-main>
+    <ErrorModal />
     <Footer />
   </v-app>
 </template>

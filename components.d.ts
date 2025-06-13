@@ -9,18 +9,23 @@ export {}
 declare module 'vue' {
   export interface GlobalComponents {
     AdminComponent: typeof import('./src/components/AdminComponent.vue')['default']
+    AdminMenu: typeof import('./src/components/forMenu/AdminMenu.vue')['default']
     AppFooter: typeof import('./src/components/AppFooter.vue')['default']
     CartComponent: typeof import('./src/components/CartComponent.vue')['default']
+    CartMenu: typeof import('./src/components/forMenu/CartMenu.vue')['default']
     Categories: typeof import('./src/components/forManagement/Categories.vue')['default']
     ErrorModal: typeof import('./src/components/mainLayout/ErrorModal.vue')['default']
     Events: typeof import('./src/components/forManagement/Events.vue')['default']
     Footer: typeof import('./src/components/mainLayout/Footer.vue')['default']
     HelloWorld: typeof import('./src/components/HelloWorld.vue')['default']
     HomeComponent: typeof import('./src/components/HomeComponent.vue')['default']
+    HomeMenu: typeof import('./src/components/forMenu/HomeMenu.vue')['default']
     LoginComponent: typeof import('./src/components/LoginComponent.vue')['default']
+    LoginMenu: typeof import('./src/components/forMenu/LoginMenu.vue')['default']
     MainContent: typeof import('./src/components/mainLayout/MainContent.vue')['default']
     NavBar: typeof import('./src/components/mainLayout/NavBar.vue')['default']
     NotFoundComponent: typeof import('./src/components/NotFoundComponent.vue')['default']
+    NotFoundMenu: typeof import('./src/components/forMenu/NotFoundMenu.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
   }
