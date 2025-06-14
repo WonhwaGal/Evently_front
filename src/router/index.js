@@ -31,12 +31,16 @@ const router = createRouter({
       },
       children: [
         {
-          path: "",
+          path: "root",
           component: () => import('@/components/adminsContent/EmptyAdmins.vue')
         },
         {
           path: "categories/create",
           component: () => import('@/components/adminsContent/CreateCategories.vue')
+        },
+        {
+          path: "categories/get",
+          component: () => import('@/components/adminsContent/GetCategories.vue')
         },
         {
           path: "events",

@@ -8,7 +8,7 @@ import { useRouter } from 'vue-router';
 const router = useRouter()
 const goHome = () => router.push("/")
 const goToLogin = () => router.push("/login")
-const goToAdmin =() => router.push("/admin")
+const goToAdmin =() => router.push("/admin/root")
 const goToCart = () => router.push("/cart")
 
 </script>

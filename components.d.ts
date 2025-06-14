@@ -21,6 +21,7 @@ declare module 'vue' {
     ErrorModal: typeof import('./src/components/mainLayout/ErrorModal.vue')['default']
     Events: typeof import('./src/components/adminsContent/Events.vue')['default']
     Footer: typeof import('./src/components/mainLayout/Footer.vue')['default']
+    GetCategories: typeof import('./src/components/adminsContent/GetCategories.vue')['default']
     HelloWorld: typeof import('./src/components/HelloWorld.vue')['default']
     HomeComponent: typeof import('./src/components/mainContent/HomeComponent.vue')['default']
     HomeMenu: typeof import('./src/components/menu/HomeMenu.vue')['default']

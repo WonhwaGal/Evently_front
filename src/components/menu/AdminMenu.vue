@@ -1,6 +1,6 @@
 <script setup>
 const toCreateCategory = '/admin/categories/create';
-
+const toGetCategories = '/admin/categories/get'
 </script>
 
 <template>
@@ -17,6 +17,7 @@ const toCreateCategory = '/admin/categories/create';
         />
         <v-list-item
           title="Get All"
+          :to="toGetCategories"
         />
       </v-list-group>
       <v-list-group title="Events">
