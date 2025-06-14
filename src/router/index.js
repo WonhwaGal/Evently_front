@@ -1,11 +1,7 @@
 import { createRouter, createWebHistory } from "vue-router"
-import HomeMenu from "@/components/forMenu/HomeMenu.vue";
-import HomeComponent from "@/components/HomeComponent.vue"
-import LoginMenu from "@/components/forMenu/LoginMenu.vue";
-import LoginComponent from "@/components/LoginComponent.vue"
-import CartMenu from "@/components/forMenu/CartMenu.vue";
-import CartComponent from "@/components/CartComponent.vue";
-import NotFoundComponent from "@/components/NotFoundComponent.vue";
+import HomeMenu from "@/components/menu/HomeMenu.vue";
+import HomeComponent from "@/components/mainContent/HomeComponent.vue"
+import NotFoundComponent from "@/components/mainContent/NotFoundComponent.vue";
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -22,25 +18,29 @@ const router = createRouter({
       path: "/login",
       name: "login-view",
       components: {
-        menu: LoginMenu,
-        content : LoginComponent
+        menu: () => import('@/components/menu/LoginMenu.vue'),
+        content : () => import('@/components/mainContent/LoginComponent.vue')
       }
     },
     {
       path: "/admin",
       name: "admin-view",
       components: {
-        menu: () => import('@/components/forMenu/AdminMenu.vue'),
-        content: () => import('@/components/AdminComponent.vue')
+        menu: () => import('@/components/menu/AdminMenu.vue'),
+        content: () => import('@/components/mainContent/AdminComponent.vue')
       },
-      children:[
+      children: [
         {
-          path: "categories",
-          component: () => import('@/components/forManagement/Categories.vue')
+          path: "",
+          component: () => import('@/components/adminsContent/EmptyAdmins.vue')
+        },
+        {
+          path: "categories/create",
+          component: () => import('@/components/adminsContent/CreateCategories.vue')
         },
         {
           path: "events",
-          component: () => import('@/components/forManagement/Events.vue')
+          component: () => import('@/components/adminsContent/Events.vue')
         }
       ]
     },
@@ -48,15 +48,15 @@ const router = createRouter({
       path: "/cart",
       name: "cart-view",
       components: {
-        menu: CartMenu,
-        content : CartComponent
+        menu: () => import('@/components/menu/CartMenu.vue'),
+        content : () => import('@/components/mainContent/CartComponent.vue')
       }
     },
     {
       path: "/:catchall(.*)*",
       name: "not-found",
       components: {
-        menu: () => import('@/components/forMenu/NotFoundMenu.vue'),
+        menu: () => import('@/components/menu/NotFoundMenu.vue'),
         content: NotFoundComponent
       }
     }

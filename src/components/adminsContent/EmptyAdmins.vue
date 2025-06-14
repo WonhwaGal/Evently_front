@@ -3,7 +3,7 @@
 </script>
 
 <template>
-  Admin menu
+  waiting for choice
 </template>
 
 <style scoped>

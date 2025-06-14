@@ -12,7 +12,7 @@ const addCategory = () =>{
 <template>
   <v-label>methods for categories</v-label>
   <v-text-field v-model="newCategory" label="Enter new category"></v-text-field>
-  <v-btn @click="addCategory">Create Category</v-btn>
+  <v-btn @click="addCategory">Create</v-btn>
 </template>
 
 <style scoped>

@@ -5,10 +5,10 @@ import { RouterView } from 'vue-router';
 <template>
   <v-container class="main-content" fluid>
     <v-row>
-      <v-col cols="2" class="menu-view">
+      <v-col cols="3" class="menu-view">
         <RouterView name="menu" />
       </v-col>
-      <v-col cols="10" class="scrollable-view">
+      <v-col cols="9" class="scrollable-view">
         <RouterView name="content" />
       </v-col>
     </v-row>
