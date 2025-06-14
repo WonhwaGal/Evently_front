@@ -6,7 +6,6 @@ const categories = ref([]);
 const getCategoriesList = async () => {
   try{
     const resp = await getCategories();
-    //categories.value = resp.data.map(c => ({ title: c }))
     categories.value = resp.data.map(c => ({ title: c.name }));
     console.debug("Get categories got response:", resp.data);
   }

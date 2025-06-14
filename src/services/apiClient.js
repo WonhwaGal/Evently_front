@@ -1,7 +1,9 @@
 import axios from 'axios';
+import { useMainStore } from "@/services/mainStore.js";
 
+const store = useMainStore();
 const apiClient = axios.create({
-  baseURL: 'http://localhost:3100',
+  baseURL: store.baseUrl,
   headers: {
     'Content-Type': 'application/json',
   },

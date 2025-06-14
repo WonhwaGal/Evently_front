@@ -1,11 +1,7 @@
-// Plugins
 import { registerPlugins } from '@/plugins'
 
-// Components
-import App from './App.vue'
-
-// Composables
 import { createApp } from 'vue'
+import App from './App.vue'
 
 // Styles
 import 'unfonts.css'
