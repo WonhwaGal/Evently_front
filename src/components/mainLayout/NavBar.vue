@@ -1,23 +1,34 @@
 <script setup>
-import appMainIcon from "@/assets/app-main-icon.png";
-import appTitle from "@/assets/app-title.png";
-//import loginImg from "@/assets/login.png"
-
-import { useRouter } from 'vue-router';
+import { ref } from 'vue'
+import { useRouter } from 'vue-router'
+import { useTheme } from 'vuetify'
+import appMainIcon from "@/assets/app-main-icon.png"
+import appTitle from "@/assets/app-title.png"
 
 const router = useRouter()
+const theme = useTheme()
 const goHome = () => router.push("/")
 const goToLogin = () => router.push("/login")
 const goToAdmin =() => router.push("/admin/root")
 const goToCart = () => router.push("/cart")
 
+const isLightTheme = ref(false);
+const changeTheme = (newValue) =>
+  theme.global.name.value = isLightTheme.value ? "eventlyLight" : "eventlyDark";
+
 </script>
 
 <template>
-  <v-app-bar flat color="blue-grey darken-4" height="120">
+  <v-app-bar flat height="120">
     <v-container class="pa-0 fill-height" style="max-width: 900px; margin: 0 auto;">
       <v-row class="fill-height" align="center" justify="space-between">
-        <v-col cols="4" class="text-start">
+        <v-col cols="4" class="left-section">
+          <v-switch
+            inset
+            v-model="isLightTheme"
+            @update:model-value="changeTheme"
+            hide-details
+          ></v-switch>
           <v-btn @click="goToAdmin">For Managers</v-btn>
         </v-col>
 
@@ -36,5 +47,10 @@ const goToCart = () => router.push("/cart")
 </template>
 
 <style scoped>
-
+.left-section{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: start;
+}
 </style>

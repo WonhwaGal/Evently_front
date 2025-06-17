@@ -17,7 +17,6 @@ import { RouterView } from 'vue-router';
 
 <style scoped>
 .main-content{
-  background-color: #763a40;
   max-width: 950px;
   margin: 0 auto;
   padding: 0;
@@ -27,12 +26,10 @@ import { RouterView } from 'vue-router';
 }
 
 .scrollable-view{
-  background-color: rgba(244, 206, 22, 0.8);
   height: 100%;
 }
 
 .menu-view{
-  background-color: rgba(97, 163, 80, 0.8);
   overflow: hidden;
 }
 </style>

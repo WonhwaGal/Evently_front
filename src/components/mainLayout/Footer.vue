@@ -10,7 +10,6 @@
 
 <style scoped>
 .footer{
-  background-color: #763a40;
   max-height: 50px;
 }
 </style>

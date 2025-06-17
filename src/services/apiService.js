@@ -6,7 +6,6 @@ export const postCategory = (categoryName) => {
   });
 }
 
-export const getCategories = () => {
-  return apiClient.get('/categories');
-}
+export const getCategories = () => apiClient.get('/categories');
+
 
