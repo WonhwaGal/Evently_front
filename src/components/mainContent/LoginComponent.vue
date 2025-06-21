@@ -1,9 +1,10 @@
 <script setup>
+import AuthorizationBlock from '@/components/authorization/AuthorizationBlock.vue'
 
 </script>
 
 <template>
-  Login component
+  <AuthorizationBlock />
 </template>
 
 <style scoped>

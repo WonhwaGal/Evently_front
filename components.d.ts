@@ -11,6 +11,7 @@ declare module 'vue' {
     AdminComponent: typeof import('./src/components/mainContent/AdminComponent.vue')['default']
     AdminMenu: typeof import('./src/components/menu/AdminMenu.vue')['default']
     AppFooter: typeof import('./src/components/AppFooter.vue')['default']
+    AuthorizationBlock: typeof import('./src/components/authorization/AuthorizationBlock.vue')['default']
     CartComponent: typeof import('./src/components/mainContent/CartComponent.vue')['default']
     CartMenu: typeof import('./src/components/menu/CartMenu.vue')['default']
     Categories: typeof import('./src/components/adminsContent/Categories.vue')['default']

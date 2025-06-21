@@ -1,14 +1,34 @@
 <script setup>
+import { useTheme } from "vuetify";
+import { computed } from "vue"
+
 import NavBar from "@/components/mainLayout/NavBar.vue"
 import MainContent from "@/components/mainLayout/MainContent.vue"
 import ErrorModal from "@/components/mainLayout/ErrorModal.vue";
 import Footer from "@/components/mainLayout/Footer.vue"
+
+import backgroundDark from '@/assets/background_dark.jpg'
+import backgroundLight from '@/assets/background_light.jpg'
+
+const theme = useTheme()
+
+const backgroundStyle = computed(() => ({
+  backgroundImage: `url(${currentUrl.value})`,
+  backgroundSize: 'cover',
+  backgroundRepeat: 'no-repeat',
+  backgroundAttachment: 'fixed',
+  backgroundPosition: 'center'
+}))
+
+const currentUrl = computed(() => {
+  return theme.global.name.value === "eventlyDark" ? backgroundDark : backgroundLight;
+})
 </script>
 
 <template>
   <v-app id="inspire">
     <NavBar />
-    <v-main class="fixed-background">
+    <v-main :style="backgroundStyle">
       <MainContent />
     </v-main>
     <ErrorModal />
@@ -17,13 +37,7 @@ import Footer from "@/components/mainLayout/Footer.vue"
 </template>
 
 <style scoped>
-.fixed-background{
-  background-image: url('@/assets/background.jpg');
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  background-position: center;
-}
+
 </style>
 
 

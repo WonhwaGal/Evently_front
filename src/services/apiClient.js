@@ -1,9 +1,9 @@
 import axios from 'axios';
 import { useMainStore } from "@/services/mainStore.js";
 
-const store = useMainStore();
+const mainStore = useMainStore();
 const apiClient = axios.create({
-  baseURL: store.baseUrl,
+  baseURL: mainStore.baseUrl,
   headers: {
     'Content-Type': 'application/json',
   },
