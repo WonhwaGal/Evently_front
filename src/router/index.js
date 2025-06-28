@@ -15,6 +15,10 @@ const router = createRouter({
       }
     },
     {
+      path: "/home",
+      redirect: "/"
+    },
+    {
       path: "/login",
       name: "login-view",
       components: {

@@ -1,7 +1,9 @@
 import axios from 'axios';
 import { useMainStore } from "@/services/mainStore.js";
+import { useAuthStore } from "@/services/authenticationStore.js";
 
 const mainStore = useMainStore();
+const authStore = useAuthStore();
 const apiClient = axios.create({
   baseURL: mainStore.baseUrl,
   headers: {
@@ -12,22 +14,21 @@ const apiClient = axios.create({
 apiClient.interceptors.response.use(
   response => response,
   error => {
-    console.error('API call failed:', error);
-    if(error.status.code === 401){
+    console.error('Evently API call failed:', error);
+    if(error.response?.status === 401){
       //authorization popup
     }
-    else if(error.status.code === 404){
+    else if(error.response?.status === 404){
       //not found
     }
     return Promise.reject(error);
   }
 );
 
-//TODO understand
 apiClient.interceptors.request.use(
   config => {
-    // Add authorization token to every request
-    const token = localStorage.getItem('token');
+    const token = authStore.authToken;
+    console.log('Adding token:', token);
     if (token) {
       config.headers.Authorization = `Bearer ${token}`;
     }

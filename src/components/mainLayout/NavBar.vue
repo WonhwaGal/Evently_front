@@ -1,12 +1,14 @@
 <script setup>
-import { ref } from 'vue'
+import {computed, ref} from 'vue'
 import { useRouter } from 'vue-router'
 import { useTheme } from 'vuetify'
+import { useAuthStore } from "@/services/authenticationStore.js";
 import appMainIcon from "@/assets/app-main-icon.png"
 import appTitle from "@/assets/app-title.png"
 
 const router = useRouter()
 const theme = useTheme()
+const authStore = useAuthStore()
 const goHome = () => router.push("/")
 const goToLogin = () => router.push("/login")
 const goToAdmin =() => router.push("/admin/root")
@@ -16,6 +18,10 @@ const isLightTheme = ref(false);
 const changeTheme = (newValue) =>
   theme.global.name.value = isLightTheme.value ? "eventlyLight" : "eventlyDark";
 
+const accountState = computed(() => {
+  console.debug("recomputing userName, current ", authStore.userName)
+  return authStore.userName === '' ? "Login" : authStore.userName
+})
 </script>
 
 <template>
@@ -38,7 +44,7 @@ const changeTheme = (newValue) =>
         </v-col>
 
         <v-col cols="4" class="text-end">
-          <v-btn @click="goToLogin">Login</v-btn>
+          <v-btn @click="goToLogin"> {{ accountState }}</v-btn>
           <v-btn @click="goToCart">Cart</v-btn>
         </v-col>
       </v-row>
